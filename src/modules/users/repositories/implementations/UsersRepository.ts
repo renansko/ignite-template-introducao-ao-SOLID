@@ -1,8 +1,8 @@
-import { User } from "../../model/User";
-import { IUsersRepository, ICreateUserDTO } from "../IUsersRepository";
+import { User } from '../../model/User';
+import { IUsersRepository, ICreateUserDTO } from '../IUsersRepository';
 
 class UsersRepository implements IUsersRepository {
-  private users: User[];
+  private users: User[] = [];
 
   private static INSTANCE: UsersRepository;
 
@@ -18,8 +18,18 @@ class UsersRepository implements IUsersRepository {
     return UsersRepository.INSTANCE;
   }
 
-  create({ name, email }: ICreateUserDTO): User {
-    // Complete aqui
+  create({ name, email }: ICreateUserDTO): void {
+    const user: User = new User();
+
+    Object.assign(user, {
+      name,
+      email,
+      admin: false,
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
+
+    this.users.push(user);
   }
 
   findById(id: string): User | undefined {
