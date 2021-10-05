@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { v4 } from 'uuid';
 
-import { app } from '../routes/index';
+import { app } from '../index';
 import { UsersRepository } from '../modules/users/repositories/implementations/UsersRepository';
 
 describe('[POST] /users', () => {
@@ -116,7 +116,7 @@ describe('[GET] /users', () => {
     const response = await request(app).get('/users').set('user_id', user1.id);
 
     expect(
-      response.body.map((res) => ({
+      response.body.map(res => ({
         ...res,
         created_at: new Date(res.created_at),
         updated_at: new Date(res.updated_at),

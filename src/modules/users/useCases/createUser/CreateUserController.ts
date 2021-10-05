@@ -1,5 +1,4 @@
 import { Response, Request } from 'express';
-import { usersRoutes } from 'routes/users.routes';
 
 import { CreateUserUseCase } from './CreateUserUseCase';
 

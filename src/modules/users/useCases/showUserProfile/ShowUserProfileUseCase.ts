@@ -1,4 +1,4 @@
-import { UsersRepository } from 'modules/users/repositories/implementations/UsersRepository';
+import { response } from 'express';
 
 import { User } from '../../model/User';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
