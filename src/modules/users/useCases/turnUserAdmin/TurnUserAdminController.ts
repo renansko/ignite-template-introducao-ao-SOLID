@@ -10,7 +10,7 @@ class TurnUserAdminController {
 
     this.turnUserAdminUseCase.execute({ user_id });
 
-    return response.status(200).json();
+    return response.status(200).send();
   }
 }
 

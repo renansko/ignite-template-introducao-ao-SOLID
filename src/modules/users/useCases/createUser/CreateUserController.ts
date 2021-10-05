@@ -1,4 +1,5 @@
 import { Response, Request } from 'express';
+import { usersRoutes } from 'routes/users.routes';
 
 import { CreateUserUseCase } from './CreateUserUseCase';
 
@@ -8,8 +9,8 @@ class CreateUserController {
   handle(request: Request, response: Response): Response {
     const { email, name } = request.body;
 
-    this.createUserUseCase.execute({ email, name });
-    return response.status(201).josn();
+    const user = this.createUserUseCase.execute({ email, name });
+    return response.status(201).json({ user });
   }
 }
 
